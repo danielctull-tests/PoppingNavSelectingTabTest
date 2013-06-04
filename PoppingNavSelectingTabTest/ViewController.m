@@ -8,22 +8,28 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
-
-@end
-
 @implementation ViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+- (IBAction)popAndSelect:(id)sender {
+	
+	UITabBarController *tabBarController = self.tabBarController;
+	UINavigationController *navigationController = self.navigationController;
+	
+	[navigationController popViewControllerAnimated:YES];
+	
+	BOOL index = tabBarController.selectedIndex;
+	tabBarController.selectedIndex = !index;
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)selectAndPop:(id)sender {
+	
+	UITabBarController *tabBarController = self.tabBarController;
+	UINavigationController *navigationController = self.navigationController;
+	
+	BOOL index = tabBarController.selectedIndex;
+	tabBarController.selectedIndex = !index;
+	
+	[navigationController popViewControllerAnimated:YES];
 }
 
 @end
