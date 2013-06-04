@@ -18,7 +18,8 @@
 	[navigationController popViewControllerAnimated:YES];
 	
 	BOOL index = tabBarController.selectedIndex;
-	tabBarController.selectedIndex = !index;
+	UIViewController *viewController = tabBarController.viewControllers[!index];
+	tabBarController.selectedViewController = viewController;
 }
 
 - (IBAction)selectAndPop:(id)sender {
@@ -27,7 +28,8 @@
 	UINavigationController *navigationController = self.navigationController;
 	
 	BOOL index = tabBarController.selectedIndex;
-	tabBarController.selectedIndex = !index;
+	UIViewController *viewController = tabBarController.viewControllers[!index];
+	tabBarController.selectedViewController = viewController;
 	
 	[navigationController popViewControllerAnimated:YES];
 }
